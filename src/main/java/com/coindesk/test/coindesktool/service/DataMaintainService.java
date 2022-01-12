@@ -28,10 +28,19 @@ public class DataMaintainService {
 	
 	
 	public List<Map<String,Object>> findCurrencyInfoByCondition(CurrencyInfo condition){
+	    List<Map<String,Object>> list = null;
+	    if(StringUtils.isBlank(condition.getCode()) &&
+	            StringUtils.isBlank(condition.getEngName()) &&
+	            StringUtils.isBlank(condition.getChName())) {
+	        //全空白就全部拿出
+	         list = currencyInfoDao.findCurrencyInfo();
+	        
+	    }else {
+	        list = currencyInfoDao.findCurrencyInfoByCondition(
+	                condition.getCode(), condition.getEngName(), condition.getChName());
+	    }
 	    
-	    List<Map<String,Object>> list = currencyInfoDao.findCurrencyInfoByCondition(
-	            condition.getCode(), condition.getEngName(), condition.getChName());
-	    
+	   
 	    return list;
 	}
 	
