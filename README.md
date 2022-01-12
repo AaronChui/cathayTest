@@ -1,5 +1,9 @@
 # cathayTest
 
+呼叫 coindeskAPI：<host>:<port>/coindeskAPI
+
+呼叫 coindeskAPI 調整後版本：<host>:<port>/info
+
 新增幣別：<host>:<port>/newCurrency
 requestBody:
 
@@ -25,9 +29,10 @@ requestBody:
     "code":"EUR"
 }
 
-查詢幣別：<host>:<port>/searchCurrency
+查詢幣別(可查詢條件為 code、chName、engName)：<host>:<port>/searchCurrency
 requestBody:
 
 {
     "code":"EUR"
 }
+
